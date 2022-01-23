@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Simulation of Variable Attention(SOVA)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### About
+Simulation of Variable Attention(SOVA) is an attempt to provide ADHD screening to those that cannot afford to see a doctor to get diagnosed. SOVA, while a great initial screen for ADHD, is not a concrete diagnosis and all results should be reviewed by your doctor to help find the treatment plan that works best for you.
 
-## Available Scripts
+### Research
+SOVA uses the research done by the University of Minnesota in their development of the T.O.V.A.(Test of Variables of Attention) test. The TOVA test uses geometric stimuli to measure different aspects of attention. Like the TOVA test, SOVA will use two test conditions: target infrequent, and target frequent. In the first half of the test, where stimuli is infrequent, the target:non-target ratio is 1:3.5. That means that a target is presented once every 3.5 non-target presentations. The first half is designed to make you tired by being boring. It requires a lot of attention since the target is hardly presented. 
 
-In the project directory, you can run:
+There are three different measurements that can be observed during this test:
+* An error of omission - the participant does not respond to the target. An error of omission is a measure of inattention.
+* An error of commission - the participant responds to a non-target. An error of commission is a measure of impulsivity.
+* Hit Rate Variability - This is the consistency in the time in which a participant responds to a target. This is a measure of inattention.
+### Technology
+SOVA records responses using the participant's keyboard.
 
-### `npm start`
+The mode of response is an important factor that affects the test's reliability. Many, continuous performance tests use keyboard based input to respond to stimuli. This can cause inherent issues with measurement of time to respond. This test, however, compensates for the average input delay that modern USB keyboards have (~30ms). Even with this delay, we can still make assumptions based on our data as all delay will be similar across hardware. SOVA aims to bring this test to all without the need of special hardware.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Unlike the T.O.V.A. test that uses the participants thumb to record responses, the SOVA encourages using your index finger to record responses. The index finger has the fastest and most consistent reaction time of all digits.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The Test
+The SOVA test is 21 minutes and 48 seconds long. 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Cost
+The average cost of getting diagnosed with ADHD is unaffordable for many people. 
+* Initial Consult - $250
+* 45 Minute Session x3 or more - $495+
+* Follow Up Tests - $100
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is flat out unattainable for many that need help. This test costs a fraction of what you might pay at a Psychologist's office. 
