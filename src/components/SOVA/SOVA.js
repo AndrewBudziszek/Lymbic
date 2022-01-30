@@ -4,20 +4,32 @@ import Low from './sounds/low.wav';
 import { createSimulation } from './testUtil';
 
 const SOVA = () => {
-    const [countDown, setCountDown] = useState(1);
-    const [runSOVA, setRunSOVA] = useState(false);
+    const countdownStartTime = 1;
+    const [testTracker, setTestTracker] = useState(0);
+
+    const [countDown, setCountDown] = useState(5);
+    const [runLymbic, setRunLymbic] = useState(false);
     const [testInProgress, setTestInProgress] = useState(false);
+    const [testSettings, setTestSettings] = useState({
+        countdownTime: countdownStartTime,
+        runLymbic: false,
+        testInProgress: false
+    })
 
     const cancelTest = () => setTestInProgress(false);
-    const startCountdown = () => setRunSOVA(true);
+    const startCountdown = () => setRunLymbic(true);
 
     //Run timer
     useEffect(() => {
         let timerId;
 
-        if (runSOVA && !testInProgress) {
-            setCountDown(1);
+        if (runLymbic && !testInProgress) {
             timerId = setInterval(() => {
+                setTestSettings(testSettings => ({
+                    countdownTime: testSettings.countdownTime - 1,
+                    runLymbic: true,
+                    testInProgress: false
+                }))
                 setCountDown(countDown => countDown - 1);
             }, 1000)
         } else {
@@ -25,16 +37,21 @@ const SOVA = () => {
         }
 
         return () => clearInterval(timerId)
-    }, [runSOVA, testInProgress]);
+    }, [runLymbic, testInProgress, testSettings]);
 
     //End timer
     useEffect(() => {
-        if (countDown < 1 && runSOVA) {
-            setRunSOVA(false);
+        if (countDown < 1 && runLymbic) {
+            setTestSettings({
+                countdownTime: 1,
+                runLymbic: false,
+                testInProgress: true
+            })
+            setRunLymbic(false);
             setCountDown(1);
             setTestInProgress(true);
         }
-    }, [countDown, runSOVA]);
+    }, [countDown, runLymbic, testSettings]);
 
     //Start SOVA Test
     let testId = useRef();
@@ -89,19 +106,19 @@ const SOVA = () => {
     return (
         <div className='game'>
             {
-                runSOVA && !testInProgress ? <div>
+                runLymbic && !testInProgress ? <div>
                     {countDown}
                 </div>
                     : null
             }
-            {!runSOVA && !testInProgress ? <p>Click Start to begin the Lymbic ADHD Evaluation</p> : null}
-            {!runSOVA ? <button
+            {!runLymbic && !testInProgress ? <p>Click Start to begin the Lymbic ADHD Evaluation</p> : null}
+            {!runLymbic ? <button
                 className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-                onClick={!runSOVA && !testInProgress ? startCountdown : cancelTest}>
-                {!runSOVA && !testInProgress ? <p>Start</p> : <p>Cancel</p>}
+                onClick={!runLymbic && !testInProgress ? startCountdown : cancelTest}>
+                {!runLymbic && !testInProgress ? <p>Start</p> : <p>Cancel</p>}
             </button> : null}
 
-            <div>This is pressed: [{pressed}]</div>
+            <div>Space is pressed: [{pressed ? true : false}]</div>
 
         </div>
     )
