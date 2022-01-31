@@ -111,14 +111,14 @@ const SOVA = () => {
                 </div>
                     : null
             }
-            {!runLymbic && !testInProgress ? <p>Click Start to begin the Lymbic ADHD Evaluation</p> : null}
+            {!runLymbic && !testInProgress ? <p>Click Start to begin the Evaluation</p> : null}
             {!runLymbic ? <button
                 className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                 onClick={!runLymbic && !testInProgress ? startCountdown : cancelTest}>
                 {!runLymbic && !testInProgress ? <p>Start</p> : <p>Cancel</p>}
             </button> : null}
 
-            <div>Space is pressed: [{pressed ? true : false}]</div>
+            <div>Space is pressed: {pressed == ' ' ? 'Yes' : 'No'}</div>
 
         </div>
     )
