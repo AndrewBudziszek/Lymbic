@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import High from './sounds/high.wav';
 import Low from './sounds/low.wav';
 import { createSimulation } from './testUtil';
@@ -7,17 +7,17 @@ const SOVA = () => {
     const countdownStartTime = 1;
     const [testTracker, setTestTracker] = useState(0);
 
-    const [countDown, setCountDown] = useState(5);
-    const [runLymbic, setRunLymbic] = useState(false);
-    const [testInProgress, setTestInProgress] = useState(false);
+    const [countDown, setCountDown] = useState(countdownStartTime); //
+    const [runLymbic, setRunLymbic] = useState(false); //
+    const [testInProgress, setTestInProgress] = useState(false);//
     const [testSettings, setTestSettings] = useState({
         countdownTime: countdownStartTime,
         runLymbic: false,
         testInProgress: false
     })
 
-    const cancelTest = () => setTestInProgress(false);
-    const startCountdown = () => setRunLymbic(true);
+    const cancelTest = () => setTestInProgress(false); //
+    const startCountdown = () => setRunLymbic(true); //
 
     //Run timer
     useEffect(() => {
@@ -31,6 +31,13 @@ const SOVA = () => {
                     testInProgress: false
                 }))
                 setCountDown(countDown => countDown - 1);
+                if(countDown < 1 && runLymbic) {
+                    setTestSettings({
+                        countdownTime: 1,
+                        runLymbic: false,
+                        testInProgress: true
+                    })
+                }
             }, 1000)
         } else {
             clearInterval(timerId);
@@ -104,21 +111,24 @@ const SOVA = () => {
     }, [pressed])
 
     return (
-        <div className='game'>
+        <div className='border-2'>
+            <div>
+                JavaScript Implementation
+            </div>
             {
                 runLymbic && !testInProgress ? <div>
                     {countDown}
                 </div>
                     : null
             }
-            {!runLymbic && !testInProgress ? <p>Click Start to begin the Evaluation</p> : null}
             {!runLymbic ? <button
                 className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                 onClick={!runLymbic && !testInProgress ? startCountdown : cancelTest}>
                 {!runLymbic && !testInProgress ? <p>Start</p> : <p>Cancel</p>}
             </button> : null}
+            {!runLymbic && !testInProgress ? <p className='text-base'>Click Start to begin the Evaluation</p> : null}
 
-            <div>Space is pressed: {pressed == ' ' ? 'Yes' : 'No'}</div>
+            <div className='text-base'>Space is pressed: {pressed == ' ' ? 'Yes' : 'No'}</div>
 
         </div>
     )

@@ -1,5 +1,6 @@
 import './App.css';
-import SOVA from './components/SOVA/SOVA'
+import SOVA from './components/SOVA/SOVA';
+import Eval from './components/SOVA/Eval';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <p>Hello, Andrew</p>
         <p>Lymbic ADHD Evaluation</p>
         <SOVA/>
+        <Eval/>
       </header>
     </div>
   );
