@@ -1,4 +1,8 @@
-import { useState, FC, useEffect } from 'react';
+import { useState, FC, useEffect, useRef } from 'react';
+
+import High from './sounds/high.wav';
+import Low from './sounds/low.wav';
+import { createSimulation } from './testUtil';
 
 interface EvalProps {
     foo: number;
@@ -63,6 +67,29 @@ const Eval: FC<EvalProps> = (props) => {
             })
         }
     }, [evalSettings]);
+
+    // Start Test
+    let testId:any = useRef();
+    useEffect(() => {
+        const LowAudio = new Audio(Low);
+        const HighAudio = new Audio(High);
+
+        if(evalSettings.testInProgress) {
+            let testArray = createSimulation()
+            let i = 0;
+
+            testId.current = setInterval(() => {
+                if(testArray[i]) {
+                    HighAudio.play();
+                } else {
+                    LowAudio.play();
+                }
+                i += 1
+            }, 2000)
+        } else {
+            clearInterval(testId.current)
+        }
+    }, [evalSettings.testInProgress, testId])
 
     // Key Listener
     const [pressed, setPressed] = useState<String[]>([]);
