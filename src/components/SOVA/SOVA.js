@@ -111,7 +111,7 @@ const SOVA = () => {
     }, [pressed])
 
     return (
-        <div className='border-2'>
+        <div className='border-4'>
             <div>
                 JavaScript Implementation
             </div>
