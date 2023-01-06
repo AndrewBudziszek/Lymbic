@@ -15,7 +15,7 @@ SOVA records responses using the participant's keyboard.
 
 The mode of response is an important factor that affects the test's reliability. Many, continuous performance tests use keyboard based input to respond to stimuli. This can cause inherent issues with measurement of time to respond. This test, however, compensates for the average input delay that modern USB keyboards have (~30ms). Even with this delay, we can still make assumptions based on our data as all delay will be similar across hardware. SOVA aims to bring this test to all without the need of special hardware.
 
-Unlike the T.O.V.A. test that uses the participants thumb to record responses, the SOVA encourages using your index finger to record responses. The index finger has the fastest and most consistent reaction time of all digits.
+Unlike the T.O.V.A. test that uses the participants thumb to record responses, the SOVA encourages using your little(pinky) finger to record responses. The little finger and thumb has the [fastest and most consistent reaction time of all digits](https://pubmed.ncbi.nlm.nih.gov/2286193/). This aims to keep tests inline with similar accuracy.
 
 ### The Test
 The SOVA test is 21 minutes and 48 seconds long. 
