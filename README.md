@@ -1,4 +1,4 @@
-# Simulation of Variable Attention(SOVA)
+# Simulation of Variable Attention(SOVA) aka Lymbic
 
 ### About
 Simulation of Variable Attention(SOVA) is an attempt to provide ADHD screening to those that cannot afford to see a doctor to get diagnosed. SOVA, while a great initial screen for ADHD, is not a concrete diagnosis and all results should be reviewed by your doctor to help find the treatment plan that works best for you.
